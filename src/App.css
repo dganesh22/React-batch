@@ -12,6 +12,7 @@ body {
 }
 
 .container {
+  height: 100vh;
   background-color: #eee;
   padding: 20px;
   display: block;

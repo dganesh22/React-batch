@@ -15,9 +15,72 @@ class Calculator extends Component {
 
         read(val) {
             console.log(`btn =`, val)
+           if(val === "C") {
+                // clearing input
+                this.setState({
+                    inp: ''
+                })
+
+           } else if (val === "CE") {
+            // clearing input & output
+            this.setState({
+                inp: '',
+                out: ''
+            })
+
+           } else if (val === "B") {
+            // back space
+             let res = this.state.inp.slice(0,-1)
+             this.setState({
+                inp: res
+             })
+
+           } else if (val === "=") {
+                // equals
+             let res = eval(this.state.inp)
+                this.setState({
+                    out: res
+                })
+
+           } else if (val === "exp") {
+                let res = Math.exp(this.state.inp)
+                    if(!res) {
+                        this.setState({
+                            out: "Invalid"
+                        }) 
+                    } else {
+                        this.setState({
+                            out: res
+                        })
+                    }
+           } else if (val === "cbrt") {
+                let res = Math.cbrt(this.state.inp)
+                if(!res) {
+                    this.setState({
+                        out: "Invalid"
+                    }) 
+                } else {
+                    this.setState({
+                        out: res
+                    })
+                }
+           } else if (val === "sqrt") {
+                let res = Math.sqrt(this.state.inp)
+                if(!res) {
+                    this.setState({
+                        out: "Invalid"
+                    }) 
+                } else {
+                    this.setState({
+                        out: res
+                    })
+                }
+           }
+           else {
             this.setState({
                 inp: this.state.inp + val
             })
+           }
         }
 
         render() {
